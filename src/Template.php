@@ -23,6 +23,8 @@ class Template
 
         require_once($this->templatesDir . $this->template . '.tpl.php');
 
+        ob_start();
+        
         return ob_get_contents();
     }
 }
