@@ -1,0 +1,26 @@
+{
+    "name": "marussia/template",
+    "description": "Marussia template",
+    "license": "MIT",
+    "keywords": [
+        "template"
+    ],
+    "authors": [
+        {
+            "name": "Mikhail Ilinsky",
+            "email": "mail@milinsky.ru"
+        }
+    ],
+    "support": {
+        "docs": "https://docs.marussia.org/template/"
+    },
+    "require": {
+        "php": "^7.0"
+    },
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Marussia\\Template\\": "src/"
+        }
+    }
+}
