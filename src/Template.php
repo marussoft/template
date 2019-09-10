@@ -6,25 +6,23 @@ namespace Marussia\Template;
 
 class Template
 {
-
-    private $template;
+    private $twig;
     
-    private $templatesDir;
+    private $variables = [];
 
-    public function __construct(string $dirPath, string $template = 'main')
+    public function __construct(string $pathToViews)
     {
-        $this->template = $template;
-        $this->templatesDir = $dirPath;
+        $loader = new \Twig\Loader\FilesystemLoader($pathToViews);
+        $this->twig = new \Twig\Environment($loader);
     }
 
-    public function render()
+    public function content(array $variables)
     {
-        ob_start();
-
-        require_once($this->templatesDir . $this->template . '.tpl.php');
-
-        ob_start();
-        
-        return ob_get_contents();
+        $this->variables = array_merge($this->variables, $variables);
+    }
+    
+    public function render(string $template)
+    {
+        return $this->twig->render($template . '.twig', $this->variables);
     }
 }
