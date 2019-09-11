@@ -15,7 +15,8 @@
         "docs": "https://docs.marussia.org/template/"
     },
     "require": {
-        "php": "^7.0"
+        "php": "^7.0",
+        "twig/twig": "^2.0"
     },
     "minimum-stability": "dev",
     "autoload": {
