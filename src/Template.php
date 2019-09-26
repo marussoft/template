@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Marussia\Template;
 
+use Marussia\ApplicationKernel\Config;
+
 class Template
 {
     private $twig;
