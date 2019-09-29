@@ -1,13 +1,15 @@
-<?php 
+<?php
 
 declare(strict_types=1);
 
 namespace Marussia\Template;
 
+use Marussia\Config\Config;
+
 class Template
 {
     private $twig;
-    
+
     private $variables = [];
 
     public function __construct()
@@ -21,12 +23,12 @@ class Template
         $this->variables = array_merge($this->variables, $variables);
         return $this;
     }
-    
+
     public function render(string $template) : string
     {
         return $this->twig->render($template . '.twig', $this->variables);
     }
-    
+
     public function exists(string $template) : bool
     {
         return $this->loader->exists($template . '.twig');
