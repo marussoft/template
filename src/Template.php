@@ -16,6 +16,14 @@ class Template
     {
         $this->loader = new \Twig\Loader\FilesystemLoader(Config::get('kernel.template', 'path_to_view'));
         $this->twig = new \Twig\Environment($this->loader);
+        
+        $extensions = Config::get('kernel.template', 'extensions');
+        
+        if (!empty($extensions)) {
+            foreach ($extensions as $extension) {
+                $this->twig->addExtension(new $extension);
+            }
+        }
     }
 
     public function content(array $variables) : self

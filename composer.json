@@ -16,7 +16,8 @@
     },
     "require": {
         "php": "^7.0",
-        "twig/twig": "^2.0"
+        "twig/twig": "^2.0",
+        "twig/extensions": "dev-master"
     },
     "minimum-stability": "dev",
     "autoload": {
