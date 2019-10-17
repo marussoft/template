@@ -12,13 +12,13 @@ class Template
 
     private $variables = [];
 
-    public function __construct()
+    public function __construct(Config $config)
     {
-        $this->loader = new \Twig\Loader\FilesystemLoader(Config::get('kernel.template', 'path_to_view'));
+        $this->loader = new \Twig\Loader\FilesystemLoader($config->get('kernel.template', 'path_to_view'));
         $this->twig = new \Twig\Environment($this->loader);
-        
-        $extensions = Config::get('kernel.template', 'extensions');
-        
+
+        $extensions = $config->get('kernel.template', 'extensions');
+
         if (!empty($extensions)) {
             foreach ($extensions as $extension) {
                 $this->twig->addExtension(new $extension);
